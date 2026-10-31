@@ -1,0 +1,40 @@
+# Do not commit secrets, build output, or Terraform state.
+
+node_modules
+# Laptop packages. npm install recreates this folder.
+
+dist
+# Vite build output. npm run build recreates it.
+
+.env
+# Local secrets. Never GitHub.
+
+*.csv
+# Access-key download from Lab 1.2. Never GitHub.
+
+.aws
+# Local AWS config. Not the Terraform files.
+
+**/.terraform/
+# Plugin cache from terraform init. Not your code.
+
+*.tfstate
+# Live Terraform state. Workflow 08 must not push this.
+
+*.tfstate.*
+# State backups. Same rule.
+
+crash.log
+# Terraform crash log. Local only.
+
+override.tf
+# Local override. Not the shared files.
+
+override.tf.json
+# JSON override. Same rule.
+
+*_override.tf
+# Named override. Same rule.
+
+*_override.tf.json
+# Named JSON override. Same rule.

@@ -1,0 +1,25 @@
+# Do not copy these into the image.
+
+node_modules
+# Laptop packages. The builder stage runs npm install itself.
+
+dist
+# Laptop Vite output. The builder stage runs npm run build itself.
+
+.git
+# Git history. Not needed to serve the page.
+
+.gitignore
+# Git ignore rules. Not the app.
+
+Dockerfile
+# The Dockerfile itself. Not files nginx should serve.
+
+terraform
+# Terraform files. Infrastructure as code — not the React app.
+
+*.md
+# Accelerator notes and README. Not the app.
+
+.oxlintrc.json
+# Local lint config. Not needed in the image.
