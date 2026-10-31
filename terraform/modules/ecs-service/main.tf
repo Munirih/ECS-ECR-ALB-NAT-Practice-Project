@@ -65,9 +65,6 @@ resource "aws_ecs_task_definition" "app" {
       ]
     }
   ])
-  depends_on = [
-    aws_iam_role_policy_attachment.execution
-  ]
 }
 
 
@@ -77,7 +74,7 @@ resource "aws_ecs_service" "app" {
   name            = "${var.project}-service"
   cluster         = var.cluster_arn
   task_definition = aws_ecs_task_definition.app.arn
-  desired_count   = var.desired_count
+  desired_count   = 1
 
   # terraform destroy waits 20 min for INACTIVE if the service stays DRAINING.
   # Force skip that wait. Off and destroy times out.

@@ -39,8 +39,3 @@ variable "alb_security_group_id" {
   default     = ""
 }
 
-variable "desired_count" {
-  description = "Number of ECS tasks to maintain"
-  type        = number
-  default     = 1
-}

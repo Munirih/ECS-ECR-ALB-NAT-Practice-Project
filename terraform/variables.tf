@@ -11,9 +11,3 @@ variable "aws_region" {
   type        = string
   default     = "us-east-1"
 }
-
-variable "desired_count" {
-  description = "Number of ECS tasks to maintain"
-  type        = number
-  default     = 1
-}

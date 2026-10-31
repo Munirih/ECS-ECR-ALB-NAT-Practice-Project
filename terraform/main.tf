@@ -43,7 +43,6 @@ module "ecs_service" {
   cluster_arn            = module.ecs_cluster.cluster_arn
   capacity_provider_name = module.ecs_cluster.capacity_provider_name
   image_uri              = "${module.ecr.repository_url}:latest"
-  desired_count          = var.desired_count
 
   target_group_arn      = module.alb.target_group_arn
   alb_security_group_id = module.alb.alb_security_group_id
