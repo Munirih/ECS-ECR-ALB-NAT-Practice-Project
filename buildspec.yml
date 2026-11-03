@@ -1,0 +1,24 @@
+# Recipe for the build machine. Lives next to Dockerfile. Not inside terraform/.
+
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+  build:
+    commands:
+      - echo Build started
+      - docker build -t $ECR_REPOSITORY:latest .
+      - docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest
+  post_build:
+    commands:
+      - echo Pushing $ECR_REGISTRY/$ECR_REPOSITORY:latest
+      - docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+      - printf '[{"name":"accelerator","imageUri":"%s"}]' "$ECR_REGISTRY/$ECR_REPOSITORY:latest" > imagedefinitions.json
+      - cat imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
