@@ -13,7 +13,7 @@ function App() {
 
       {/* Event / cohort context line shown above the brand cards. */}
       <h3 className="bootcamp-title">
-        AWS Graduate Cloud Skills Accelerator | Online
+        AWS Graduate Cloud Skills Accelerator | Manual Launch
       </h3>
 
       {/* Brand row: Academy and AWS visual identity. */}
